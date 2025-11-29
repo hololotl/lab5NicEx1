@@ -1,0 +1,16 @@
+stages:
+  - sast
+
+bandit_sast:
+  stage: sast
+  image: python:3.12
+  before_script:
+    - pip install bandit
+  script:
+    - bandit -r . -f html -o bandit-report.html
+  artifacts:
+    paths:
+      - bandit-report.html
+    expire_in: 1 week
+  only:
+    - main
