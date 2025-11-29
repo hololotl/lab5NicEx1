@@ -29,13 +29,13 @@ jobs:
         bandit -r . -f json -o bandit-report.json
 
     - name: Upload HTML Report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: bandit-report
         path: bandit-report.html
 
     - name: Upload JSON Report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: bandit-json
         path: bandit-report.json
